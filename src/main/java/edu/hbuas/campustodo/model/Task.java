@@ -1,5 +1,7 @@
 package edu.hbuas.campustodo.model;
 
+import edu.hbuas.campustodo.enumeration.Priority;
+
 import java.util.Objects;
 
 /**
@@ -9,6 +11,7 @@ public class Task {
     private final long id;
     private final String title;
     private boolean completed;
+    private Priority priority;
 
     public Task(long id, String title) {
         if (id <= 0) {
@@ -35,6 +38,14 @@ public class Task {
 
     public void complete() {
         completed = true;
+    }
+
+    public Priority getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
     }
 
     @Override
