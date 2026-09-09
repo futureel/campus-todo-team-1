@@ -26,4 +26,8 @@ public class TaskService {
     public void filterByPriority(Priority priority) {
 
     }
+
+    public void completeTask(Long taskId) {
+
+    }
 }
