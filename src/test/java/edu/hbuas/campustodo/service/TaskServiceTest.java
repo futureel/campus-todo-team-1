@@ -78,6 +78,7 @@ class TaskServiceTest {
         // 第二次重复完成，应该报错
         assertThrows(IllegalStateException.class,
                 () -> service.completeTask(taskId));
+    }
 
     @Test
     void shouldUseMediumAsDefaultPriority() {
