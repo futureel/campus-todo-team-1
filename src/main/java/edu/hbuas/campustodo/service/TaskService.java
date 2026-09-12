@@ -27,6 +27,17 @@ public class TaskService {
         return List.copyOf(tasks);
     }
 
+    public void completeTask(long taskId) {
+        Task task = tasks.stream()
+                .filter(candidate -> candidate.getId() == taskId)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Task not found: " + taskId));
+        if (task.isCompleted()) {
+            throw new IllegalStateException("Task already completed: " + taskId);
+        }
+        task.complete();
+    }
+
     public List<Task> filterByPriority(Priority priority) {
         if (priority == null) {
             throw new IllegalArgumentException("筛选优先级不能为空");
@@ -34,5 +45,6 @@ public class TaskService {
         return tasks.stream()
                 .filter(task -> task.getPriority() == priority)
                 .toList();
+
     }
 }
