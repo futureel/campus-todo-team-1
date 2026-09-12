@@ -1,12 +1,12 @@
 package edu.hbuas.campustodo.service;
 
+import edu.hbuas.campustodo.model.Task;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import edu.hbuas.campustodo.model.Task;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TaskServiceTest {
 
@@ -29,12 +29,6 @@ class TaskServiceTest {
         assertThrows(IllegalArgumentException.class,
                 () -> service.addTask("   "));
     }
-
-    @Test
-    void testCommitAndMerge() {
-        System.out.println("oi,小鬼！！！");
-    }
-
 
     // 测试：正常完成已存在的任务，任务状态应变为已完成
     @Test
@@ -68,9 +62,7 @@ class TaskServiceTest {
         service.completeTask(taskId);
 
         // 第二次重复完成，应该报错
-        assertThrows(IllegalStateException.class, () -> {
-            service.completeTask(taskId);
-        });
+        assertThrows(IllegalStateException.class,
+                () -> service.completeTask(taskId));
     }
-
 }
