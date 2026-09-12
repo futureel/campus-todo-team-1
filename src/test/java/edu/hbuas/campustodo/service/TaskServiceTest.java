@@ -27,9 +27,4 @@ class TaskServiceTest {
         assertThrows(IllegalArgumentException.class,
                 () -> service.addTask("   "));
     }
-
-    @Test
-    void testCommitAndMerge() {
-        System.out.println("oi,小鬼！！！");
-    }
 }

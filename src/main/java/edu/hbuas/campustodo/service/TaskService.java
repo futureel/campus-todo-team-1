@@ -1,6 +1,5 @@
 package edu.hbuas.campustodo.service;
 
-import edu.hbuas.campustodo.enumeration.Priority;
 import edu.hbuas.campustodo.model.Task;
 
 import java.util.ArrayList;
@@ -21,9 +20,5 @@ public class TaskService {
 
     public List<Task> listAll() {
         return List.copyOf(tasks);
-    }
-
-    public void filterByPriority(Priority priority) {
-
     }
 }
