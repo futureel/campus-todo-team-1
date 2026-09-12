@@ -75,3 +75,7 @@ git push origin v0.1.0
 5. 由另一名成员查看 `Files changed` 并提出可验证的评审意见；作者处理意见后重新请求评审。
 6. CI 通过、评审意见全部解决且至少获得一次 Approve 后，按 `#11 → #9 → #10` 的顺序合并。
 7. 合并后同步本地 `main`，删除已完成的功能分支，并在发布前确认主分支 CI 通过。
+
+## 8. 团队证据
+
+Issue、PR、Commit、Actions 和 Release 的链接统一记录在 [团队证据索引](docs/evidence-index.md)。
