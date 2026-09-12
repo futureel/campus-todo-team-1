@@ -23,6 +23,13 @@ public class TaskService {
     }
 
     public void completeTask(long taskId) {
-
+        Task task = tasks.stream()
+                .filter(candidate -> candidate.getId() == taskId)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Task not found: " + taskId));
+        if (task.isCompleted()) {
+            throw new IllegalStateException("Task already completed: " + taskId);
+        }
+        task.complete();
     }
 }
