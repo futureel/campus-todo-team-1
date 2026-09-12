@@ -42,6 +42,18 @@ class TaskServiceTest {
         assertTrue(service.listAll().get(0).isCompleted());
     }
 
+    @Test
+    void completeTask_onlyMatchingTaskIsCompleted() {
+        TaskService service = new TaskService();
+        Task first = service.addTask("准备小组展示");
+        Task second = service.addTask("提交实验报告");
+
+        service.completeTask(second.getId());
+
+        assertFalse(first.isCompleted());
+        assertTrue(second.isCompleted());
+    }
+
     // 测试：完成不存在的任务编号，应抛出非法参数异常
     @Test
     void completeTask_nonExistingId_throwsIllegalArgumentException() {
